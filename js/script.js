@@ -27,7 +27,7 @@ function loadData() {
 
 
 $.getJSON( searchURL, function( json ) {
-  console.log( "JSON Data: " + json.users[ 3 ].name );
+  console.log(json);
  }) .error(function() {
     alert( "strange error")
   })
