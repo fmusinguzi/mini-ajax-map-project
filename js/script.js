@@ -25,7 +25,7 @@ function loadData() {
     var searchURL = baseURL + "?api-key=" + apiKey + "&q=" + thisAddress;
 
 
-$.getJSON( searchURL, function(json) {
+$.getJSON( searchURL, function(data) {
         var items = [];
         $.each(data, function(key, val) {
             items.push("<li id='" + key + "'>" + val + "</li>");
