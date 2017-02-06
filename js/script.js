@@ -30,7 +30,13 @@ $.getJSON( searchURL, function(data) {
         $.each(data, function(key, val) {
             items.push("<li id='" + key + "'>" + val + "</li>");
         });
-    })
+
+           $( "<ul/>", {
+    "class": "my-new-list",
+    html: items.join( "" )
+        }).appendTo( "body" );
+      })
+
 .error(function() {
         alert("strange error")
     })
@@ -44,11 +50,7 @@ $.getJSON( searchURL, function(data) {
     // // items.push( "<li id='" + key + "'>" + val + "</li>" );
     // });
 
-    // $( "<ul/>", {
-    // "class": "my-new-list",
-    // html: items.join( "" )
-    //     }).appendTo( "body" );
-    // });
+
 
     return false;
 };
