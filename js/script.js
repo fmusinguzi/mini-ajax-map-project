@@ -25,12 +25,16 @@ function loadData() {
     var searchURL = baseURL + "?api-key=" + apiKey + "&q=" + thisAddress;
 
 
+$.getJSON( searchURL, function(json) {
+        var items = [];
+        $.each(data, function(key, val) {
+            items.push("<li id='" + key + "'>" + val + "</li>");
+        });
+    })
+.error(function() {
+        alert("strange error")
+    })
 
-$.getJSON( searchURL, function( json ) {
-  console.log(json);
- }) .error(function() {
-    alert( "strange error")
-  })
 
 
     // $.getJSON(searchURL, function( data ) {
