@@ -35,8 +35,23 @@ function loadData() {
                     if (key === "response") {
                         $.each(data["response"].docs, function(thisKey, thisVal) {
                             console.log(data["response"].docs[thisKey]["snippet"]);
-                            var snippet = JSON.stringify(data["response"].docs[thisKey]["snippet"]);
-                                items.push("<li id='" + thisKey + "'>" + snippet + "</li>");
+                            var abstract = JSON.stringify(data["response"].docs[thisKey]["abstract"]);
+                            var link = JSON.stringify(data["response"].docs[thisKey]["web_url"]);
+                            var kicker = data["response"].docs[thisKey]["headline"]["kicker"];
+
+                            var listElement = document.createElement("li");
+
+                            var linkElement = document.createElement("a");
+                                linkElement.setAttribute('href', link);
+                                linkElement.innerText = kicker;
+                                listElement.append(linkElement)
+
+                            var paragraphElement = document.createElement("p");
+                                paragraphElement.innerText = abstract;
+                                listElement.append(p)
+
+                            items.push(listElement);
+
                         });
                     }
                 } catch (e) {
