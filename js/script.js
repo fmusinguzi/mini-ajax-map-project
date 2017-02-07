@@ -38,7 +38,7 @@ function loadData() {
                             console.log(data["response"].docs[thisKey]["snippet"]);
                             var snippet = JSON.stringify(data["response"].docs[thisKey]["snippet"]);
                             var link = JSON.stringify(data["response"].docs[thisKey]["web_url"]);
-                            var kicker = data["response"].docs[thisKey]["headline"]["kicker"];
+                            var main = data["response"].docs[thisKey]["headline"]["main"];
 
                             var ulElement = document.createElement("ul");
                             var listElement = document.createElement("li");
