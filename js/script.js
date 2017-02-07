@@ -62,10 +62,12 @@ function loadData() {
 
             })
 
-            $("<ul/>", {
-                "class": "my-new-list",
-                html: items.join("")
-            }).appendTo("body");
+​           $('body')​.append(items);
+
+            // $("<ul/>", {
+            //     "class": "my-new-list",
+            //     html: items.join("")
+            // }).appendTo("body");
         })
         .error(function() {
             alert("strange error")
