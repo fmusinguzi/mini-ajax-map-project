@@ -33,38 +33,38 @@ function loadData() {
             $.each(data, function(key, val) {
                 // try {
 
-                    if (key === "response") {
-                        var ulElement = document.createElement("ul");
-                                ulElement.setAttribute("id", "nytimes-articles");
-                                ulElement.setAttribute("class", "article-list");
+                if (key === "response") {
+                    var ulElement = document.createElement("ul");
+                    ulElement.setAttribute("id", "nytimes-articles");
+                    ulElement.setAttribute("class", "article-list");
 
 
-                        $.each(data["response"].docs, function(thisKey, thisVal) {
-                            console.log(data["response"].docs[thisKey]["snippet"]);
-                            var abstract = JSON.stringify(data["response"].docs[thisKey]["abstract"]);
-                            var link = JSON.stringify(data["response"].docs[thisKey]["web_url"]);
-                            var main = data["response"].docs[thisKey]["headline"]["main"];
+                    $.each(data["response"].docs, function(thisKey, thisVal) {
+                        console.log(data["response"].docs[thisKey]["snippet"]);
+                        var abstract = JSON.stringify(data["response"].docs[thisKey]["abstract"]);
+                        var link = JSON.stringify(data["response"].docs[thisKey]["web_url"]);
+                        var main = data["response"].docs[thisKey]["headline"]["main"];
 
-                            var listElement = document.createElement("li");
+                        var listElement = document.createElement("li");
 
-                            var linkElement = document.createElement("a");
-                            linkElement.setAttribute('href', link);
-                            linkElement.innerText = main;
-                                linkElement.setAttribute("class", "article");
+                        var linkElement = document.createElement("a");
+                        linkElement.setAttribute('href', link);
+                        linkElement.innerText = main;
+                        linkElement.setAttribute("class", "article");
 
-                            listElement.append(linkElement)
+                        listElement.append(linkElement)
 
 
-                            var paragraphElement = document.createElement("p");
-                            paragraphElement.innerText = abstract;
-                            listElement.append(paragraphElement)
+                        var paragraphElement = document.createElement("p");
+                        paragraphElement.innerText = abstract;
+                        listElement.append(paragraphElement)
 
-                            ulElement.append(listElement);
+                        ulElement.append(listElement);
 
-                            elements.append(ulElement);
-                        });
-                        $(document.body).append(elements);
-                    }
+                        elements.append(ulElement);
+                    });
+                    $(document.body).append(elements);
+                }
                 // } catch (e) {
                 //     // statements to handle any exceptions
                 //     console.log(e); // pass exception object to error handler
@@ -74,16 +74,15 @@ function loadData() {
             });
 
 
-
+                $.fail(function() {
+                    var spanElement = document.createElement("span");
+                    spanElement.innerText = "Could not load NYT articles!";
+                    $(document.body).append(spanElement);
+                });
             // $("<ul/>", {
             //     "class": "my-new-list",
             //     html: items.join("")
             // }).appendTo("body");
-        })
-        .fail(function() {
-              var spanElement = document.createElement("span");
-              spanElement.innerText = "Could not load NYT articles!";
-               $(document.body).append(spanElement);
         })
 
 
