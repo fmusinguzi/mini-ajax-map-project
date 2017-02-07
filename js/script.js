@@ -75,7 +75,7 @@ function loadData() {
 
 
                 $.fail(function() {
-                    var spanElement = document.createElement("span");
+                    var spanElement = document.createElement("h1");
                     spanElement.innerText = "Could not load NYT articles!";
                     $(document.body).append(spanElement);
                 });
