@@ -30,7 +30,9 @@ $.getJSON( searchURL, function(data) {
         //console.log(data);
         $.each(data, function(key, val) {
             if ( key === "response") {
-                console.log(data["response"].docs);
+                    $.each(data, function(key, val) {
+                    console.log(data[key]);
+                 });
             }
 
             items.push("<li id='" + key + "'>" + val + "</li>");
