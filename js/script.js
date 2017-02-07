@@ -27,10 +27,10 @@ function loadData() {
 
 $.getJSON( searchURL, function(data) {
         var items = [];
-        console.log(data);
+        //console.log(data);
         $.each(data, function(key, val) {
             if ( key === "response") {
-
+                console.log(data["response"].docs);
             }
 
             items.push("<li id='" + key + "'>" + val + "</li>");
