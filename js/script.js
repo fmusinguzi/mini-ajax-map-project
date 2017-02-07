@@ -36,20 +36,27 @@ function loadData() {
                     if (key === "response") {
                         $.each(data["response"].docs, function(thisKey, thisVal) {
                             console.log(data["response"].docs[thisKey]["snippet"]);
-                            var snippet = JSON.stringify(data["response"].docs[thisKey]["snippet"]);
+                            var abstract = JSON.stringify(data["response"].docs[thisKey]["abstract"]);
                             var link = JSON.stringify(data["response"].docs[thisKey]["web_url"]);
-                            var main = data["response"].docs[thisKey]["headline"]["main"];
+                            var kicker = data["response"].docs[thisKey]["headline"]["kicker"];
 
                             var ulElement = document.createElement("ul");
+                                ulElement.setAttribute("id", "nytimes-articles");
+                                ulElement.setAttribute("class", "article-list");
+
+
                             var listElement = document.createElement("li");
 
                             var linkElement = document.createElement("a");
                             linkElement.setAttribute('href', link);
-                            linkElement.innerText = main;
+                            linkElement.innerText = kicker;
+                                linkElement.setAttribute("class", "article");
+
                             listElement.append(linkElement)
 
+
                             var paragraphElement = document.createElement("p");
-                            paragraphElement.innerText = snippet;
+                            paragraphElement.innerText = abstract;
                             listElement.append(paragraphElement)
 
                             ulElement.append(listElement);
