@@ -28,7 +28,7 @@ function loadData() {
 
     $.getJSON(searchURL, function(data) {
             var items = [];
-            var elements = document.createDocumentFragment(),
+            var elements = document.createDocumentFragment();
             //console.log(data);
             $.each(data, function(key, val) {
                 try {
@@ -40,21 +40,21 @@ function loadData() {
                             var link = JSON.stringify(data["response"].docs[thisKey]["web_url"]);
                             var kicker = data["response"].docs[thisKey]["headline"]["kicker"];
 
- var ulElement = document.createElement("ul");
+                            var ulElement = document.createElement("ul");
                             var listElement = document.createElement("li");
 
                             var linkElement = document.createElement("a");
-                                linkElement.setAttribute('href', link);
-                                linkElement.innerText = kicker;
-                                listElement.append(linkElement)
+                            linkElement.setAttribute('href', link);
+                            linkElement.innerText = kicker;
+                            listElement.append(linkElement)
 
                             var paragraphElement = document.createElement("p");
-                                paragraphElement.innerText = abstract;
-                                listElement.append(paragraphElement)
+                            paragraphElement.innerText = abstract;
+                            listElement.append(paragraphElement)
 
                             ulElement.append(listElement);
 
-                            elements.append( ulElement );
+                            elements.append(ulElement);
                         });
                     }
                 } catch (e) {
@@ -63,7 +63,7 @@ function loadData() {
                 }
 
 
-            })
+            });
 
 ​      $(document.body).append(elements);
 
