@@ -32,16 +32,12 @@ $.getJSON( searchURL, function(data) {
             if ( key === "response") {
                     $.each(data[response].docs, function(key, val) {
                     console.log(data[key]);
-                 }).error(function() {
-        alert("row error")
-    });
+                 });
             }
 
             items.push("<li id='" + key + "'>" + val + "</li>");
 
-        }).error(function() {
-        alert("data error")
-    });
+        })
 
            $( "<ul/>", {
     "class": "my-new-list",
