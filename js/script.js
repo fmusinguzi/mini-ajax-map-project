@@ -28,6 +28,7 @@ function loadData() {
 
     $.getJSON(searchURL, function(data) {
             var items = [];
+            var elements = document.createDocumentFragment(),
             //console.log(data);
             $.each(data, function(key, val) {
                 try {
@@ -39,6 +40,7 @@ function loadData() {
                             var link = JSON.stringify(data["response"].docs[thisKey]["web_url"]);
                             var kicker = data["response"].docs[thisKey]["headline"]["kicker"];
 
+ var ulElement = document.createElement("ul");
                             var listElement = document.createElement("li");
 
                             var linkElement = document.createElement("a");
@@ -50,8 +52,9 @@ function loadData() {
                                 paragraphElement.innerText = abstract;
                                 listElement.append(paragraphElement)
 
-                            items.push(listElement);
+                            ulElement.append(listElement);
 
+                            elements.append( ulElement );
                         });
                     }
                 } catch (e) {
@@ -62,7 +65,7 @@ function loadData() {
 
             })
 
-​           $("body")​.append(items);
+​      $(document.body).append(elements);
 
             // $("<ul/>", {
             //     "class": "my-new-list",
