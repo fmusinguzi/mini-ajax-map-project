@@ -1,3 +1,4 @@
+// JavaScript source code
 
 function loadData() {
 
@@ -14,9 +15,9 @@ function loadData() {
     $wikiElem.text("");
     $nytElem.text("");
 
-    $greeting.text('So you want to live at ' + street + ', ' + city );
-    var $sourceString = "http://maps.googleapis.com/maps/api/streetview?size=600x300&location=" + street + ", " + city + "?" ;
-    $body.append('<img class="bgimg" src= "'+ $sourceString +'">');
+    $greeting.text('So you want to live at ' + street + ', ' + city);
+    var $sourceString = "http://maps.googleapis.com/maps/api/streetview?size=600x300&location=" + street + ", " + city + "?";
+    $body.append('<img class="bgimg" src= "' + $sourceString + '">');
 
     var thisAddress = street + ", " + city;
     var baseURL = "https://api.nytimes.com/svc/search/v2/articlesearch.json";
@@ -25,30 +26,33 @@ function loadData() {
     var searchURL = baseURL + "?api-key=" + apiKey + "&q=" + thisAddress;
 
 
-$.getJSON( searchURL, function(data) {
-        var items = [];
-        //console.log(data);
-        $.each(data, function(key, val) {
-            if ( key === "response") {
-                    $.each(data["response"].docs, function(key, val) {
-                    console.log(data[key]);
-                 });
-            }
+    $.getJSON(searchURL, function(data) {
+            var items = [];
+            //console.log(data);
+            $.each(data, function(key, val) {
+                try {
 
-            items.push("<li id='" + key + "'>" + val + "</li>");
+                    if (key === "response") {
+                        $.each(data["response"].docs, function(key, val) {
+                            console.log(data["response"].docs[key]);
+                        });
+                    }
+                } catch (e) {
+                    // statements to handle any exceptions
+                    logMyErrors(e); // pass exception object to error handler
+                }
+                items.push("<li id='" + key + "'>" + val + "</li>");
 
+            })
+
+            $("<ul/>", {
+                "class": "my-new-list",
+                html: items.join("")
+            }).appendTo("body");
         })
-
-           $( "<ul/>", {
-    "class": "my-new-list",
-    html: items.join( "" )
-        }).appendTo( "body" );
-      })
-
-.error(function() {
-        alert("strange error")
-    })
-
+        .error(function() {
+            alert("strange error")
+        })
 
 
     // $.getJSON(searchURL, function( data ) {
@@ -57,7 +61,6 @@ $.getJSON( searchURL, function(data) {
     // // $.each( data, function( key, val ) {
     // // items.push( "<li id='" + key + "'>" + val + "</li>" );
     // });
-
 
 
     return false;
