@@ -45,7 +45,7 @@ function loadData() {
 
                             var linkElement = document.createElement("a");
                             linkElement.setAttribute('href', link);
-                            linkElement.innerText = kicker;
+                            linkElement.innerText = main;
                             listElement.append(linkElement)
 
                             var paragraphElement = document.createElement("p");
