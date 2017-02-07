@@ -63,6 +63,7 @@ function loadData() {
 
                         elements.append(ulElement);
                     });
+
                     $(document.body).append(elements);
                 }
                 // } catch (e) {
@@ -75,9 +76,12 @@ function loadData() {
 
 
                 $.fail(function() {
-                    var spanElement = document.createElement("h1");
-                    spanElement.innerText = "Could not load NYT articles!";
-                    $(document.body).append(spanElement);
+
+                    $(".nytimes-header").innerText = "FAIL!!";
+                    // var spanElement = document.createElement("span");
+                    // spanElement.innerText = "Could not load NYT articles!";
+
+                    // $(document.body).append(spanElement);
                 });
             // $("<ul/>", {
             //     "class": "my-new-list",
