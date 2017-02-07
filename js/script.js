@@ -36,7 +36,7 @@ function loadData() {
                     if (key === "response") {
                         $.each(data["response"].docs, function(thisKey, thisVal) {
                             console.log(data["response"].docs[thisKey]["snippet"]);
-                            var abstract = JSON.stringify(data["response"].docs[thisKey]["abstract"]);
+                            var snippet = JSON.stringify(data["response"].docs[thisKey]["snippet"]);
                             var link = JSON.stringify(data["response"].docs[thisKey]["web_url"]);
                             var kicker = data["response"].docs[thisKey]["headline"]["kicker"];
 
@@ -49,7 +49,7 @@ function loadData() {
                             listElement.append(linkElement)
 
                             var paragraphElement = document.createElement("p");
-                            paragraphElement.innerText = abstract;
+                            paragraphElement.innerText = snippet;
                             listElement.append(paragraphElement)
 
                             ulElement.append(listElement);
