@@ -56,6 +56,7 @@ function loadData() {
 
                             elements.append(ulElement);
                         });
+                        $(document.body).append(elements);
                     }
                 } catch (e) {
                     // statements to handle any exceptions
@@ -65,7 +66,7 @@ function loadData() {
 
             });
 
-​      $(document.body).append(elements);
+
 
             // $("<ul/>", {
             //     "class": "my-new-list",
