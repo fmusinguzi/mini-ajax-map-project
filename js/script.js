@@ -30,7 +30,7 @@ $.getJSON( searchURL, function(data) {
         //console.log(data);
         $.each(data, function(key, val) {
             if ( key === "response") {
-                    $.each(data, function(key, val) {
+                    $.each(data[response].docs, function(key, val) {
                     console.log(data[key]);
                  }).error(function() {
         alert("row error")
