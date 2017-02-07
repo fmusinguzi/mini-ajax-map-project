@@ -89,7 +89,7 @@ function loadData() {
             // }).appendTo("body");
         }).error(function() {
 
-                    $("#nytimes-header").innerText = "FAIL!!";
+                    $("#nytimes-header").text("FAIL!!");
                     // var spanElement = document.createElement("span");
                     // spanElement.innerText = "Could not load NYT articles!";
 
