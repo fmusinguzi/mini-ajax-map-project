@@ -34,16 +34,16 @@ function loadData() {
                 try {
 
                     if (key === "response") {
+                        var ulElement = document.createElement("ul");
+                                ulElement.setAttribute("id", "nytimes-articles");
+                                ulElement.setAttribute("class", "article-list");
+
+
                         $.each(data["response"].docs, function(thisKey, thisVal) {
                             console.log(data["response"].docs[thisKey]["snippet"]);
                             var abstract = JSON.stringify(data["response"].docs[thisKey]["abstract"]);
                             var link = JSON.stringify(data["response"].docs[thisKey]["web_url"]);
                             var kicker = data["response"].docs[thisKey]["headline"]["kicker"];
-
-                            var ulElement = document.createElement("ul");
-                                ulElement.setAttribute("id", "nytimes-articles");
-                                ulElement.setAttribute("class", "article-list");
-
 
                             var listElement = document.createElement("li");
 
