@@ -75,7 +75,19 @@ function loadData() {
             });
 
 
-                $.fail(function() {
+                // $.fail(function() {
+
+                //     $(".nytimes-header").innerText = "FAIL!!";
+                //     // var spanElement = document.createElement("span");
+                //     // spanElement.innerText = "Could not load NYT articles!";
+
+                //     // $(document.body).append(spanElement);
+                // });
+            // $("<ul/>", {
+            //     "class": "my-new-list",
+            //     html: items.join("")
+            // }).appendTo("body");
+        }).error(function() {
 
                     $(".nytimes-header").innerText = "FAIL!!";
                     // var spanElement = document.createElement("span");
@@ -83,11 +95,6 @@ function loadData() {
 
                     // $(document.body).append(spanElement);
                 });
-            // $("<ul/>", {
-            //     "class": "my-new-list",
-            //     html: items.join("")
-            // }).appendTo("body");
-        })
 
 
     // $.getJSON(searchURL, function( data ) {
