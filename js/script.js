@@ -35,7 +35,8 @@ function loadData() {
                     if (key === "response") {
                         $.each(data["response"].docs, function(thisKey, thisVal) {
                             console.log(data["response"].docs[thisKey]["snippet"]);
-                                items.push("<li id='" + thisKey + "'>" + data["response"].docs[thisKey]["snippet"] + "</li>");
+                            var snippet = JSON.stringify(data["response"].docs[thisKey]["snippet"]);
+                                items.push("<li id='" + thisKey + "'>" + snippet + "</li>");
                         });
                     }
                 } catch (e) {
