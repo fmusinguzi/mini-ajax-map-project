@@ -20,7 +20,7 @@ function loadData() {
     $body.append('<img class="bgimg" src= "' + $sourceString + '">');
 
     var thisAddress = street + ", " + city;
-    var baseURL = "https://api.nytimes.com/svc/search/v2/articlesearch.json";
+    var baseURL = "https://api.nyteerimes.com/svc/search/v2/articlesearch.json";
     var apiKey = "3f8291dc6ff54ddfbe94b31b8d55b44b";
 
     var searchURL = baseURL + "?api-key=" + apiKey + "&q=" + thisAddress;
@@ -31,7 +31,7 @@ function loadData() {
             var elements = document.createDocumentFragment();
             //console.log(data);
             $.each(data, function(key, val) {
-                try {
+                // try {
 
                     if (key === "response") {
                         var ulElement = document.createElement("ul");
@@ -65,10 +65,10 @@ function loadData() {
                         });
                         $(document.body).append(elements);
                     }
-                } catch (e) {
-                    // statements to handle any exceptions
-                    console.log(e); // pass exception object to error handler
-                }
+                // } catch (e) {
+                //     // statements to handle any exceptions
+                //     console.log(e); // pass exception object to error handler
+                // }
 
 
             });
@@ -80,8 +80,9 @@ function loadData() {
             //     html: items.join("")
             // }).appendTo("body");
         })
-        .error(function() {
-            alert("strange error")
+        .fail(function() {
+              var spanElement = document.createElement("span");
+              spanElement.innerText = "COuld not load NYT articles!";
         })
 
 
