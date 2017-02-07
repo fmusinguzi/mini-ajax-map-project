@@ -43,13 +43,13 @@ function loadData() {
                             console.log(data["response"].docs[thisKey]["snippet"]);
                             var abstract = JSON.stringify(data["response"].docs[thisKey]["abstract"]);
                             var link = JSON.stringify(data["response"].docs[thisKey]["web_url"]);
-                            var kicker = data["response"].docs[thisKey]["headline"]["kicker"];
+                            var main = data["response"].docs[thisKey]["headline"]["main"];
 
                             var listElement = document.createElement("li");
 
                             var linkElement = document.createElement("a");
                             linkElement.setAttribute('href', link);
-                            linkElement.innerText = kicker;
+                            linkElement.innerText = main;
                                 linkElement.setAttribute("class", "article");
 
                             listElement.append(linkElement)
