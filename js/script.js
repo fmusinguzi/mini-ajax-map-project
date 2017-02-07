@@ -33,15 +33,16 @@ function loadData() {
                 try {
 
                     if (key === "response") {
-                        $.each(data["response"].docs, function(key, val) {
-                            console.log(data["response"].docs[key]);
+                        $.each(data["response"].docs, function(thisKey, thisVal) {
+                            console.log(data["response"].docs[thisKey]);
+                                items.push("<li id='" + thisKey + "'>" + thisVal + "</li>");
                         });
                     }
                 } catch (e) {
                     // statements to handle any exceptions
                     logMyErrors(e); // pass exception object to error handler
                 }
-                items.push("<li id='" + key + "'>" + val + "</li>");
+
 
             })
 
