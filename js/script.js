@@ -48,7 +48,7 @@ function loadData() {
 
                             var paragraphElement = document.createElement("p");
                                 paragraphElement.innerText = abstract;
-                                listElement.append(p)
+                                listElement.append(paragraphElement)
 
                             items.push(listElement);
 
@@ -56,7 +56,7 @@ function loadData() {
                     }
                 } catch (e) {
                     // statements to handle any exceptions
-                    logMyErrors(e); // pass exception object to error handler
+                    console.log(e); // pass exception object to error handler
                 }
 
 
