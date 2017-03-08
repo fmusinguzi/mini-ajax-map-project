@@ -20,7 +20,7 @@ function loadData() {
     $body.append('<img class="bgimg" src= "' + $sourceString + '">');
 
     var thisAddress = street + ", " + city;
-    var baseURL = "https://api.nyteerimes.com/svc/search/v2/articlesearch.json";
+    var baseURL = "https://api.nytimes.com/svc/search/v2/articlesearch.json";
     var apiKey = "3f8291dc6ff54ddfbe94b31b8d55b44b";
 
     var searchURL = baseURL + "?api-key=" + apiKey + "&q=" + thisAddress;
